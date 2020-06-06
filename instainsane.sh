@@ -52,7 +52,7 @@ else
 default_wl_pass="passwords.lst"
 read -p $'\e[1;92mListe des mot de passe, elle doit finir par .lst\n\e[0m\e[1;92m(Ne rien écrire pour la liste de base): \e[0m' wl_pass
 wl_pass="${wl_pass:-${default_wl_pass}}"
-default_threads="100"
+default_threads="1000"
 threads="${threads:-${default_threads}}"
 fi
 }
@@ -533,7 +533,8 @@ let countern++
 done
 read -p $'\e[1;92mChoose a session number: \e[0m' fileresume
 source $(ls sessions/store.session* | sed ''$fileresume'q;d')
-default_threads=100
+default_threads=1000
+
 threads="${threads:-${default_threads}}"
 
 printf "\e[1;92m[*] Resuming session for user:\e[0m \e[1;77m%s\e[0m\n" $user
